@@ -1,7 +1,7 @@
 angular.module('todoApp',[])
   .controller('todoCtrl',function($scope){
-    $scope.foodArr =[]
-    console.log($scope.foodArr)
+    let fArr = []
+    $scope.foodArr = fArr
     if($scope.foodArr.length ===0){
       $scope.foodArr = JSON.parse(localStorage.getItem('food'))
     }
@@ -11,7 +11,15 @@ angular.module('todoApp',[])
         number:$scope.fNumber,
         price:$scope.fPrice
       }
-      $scope.foodArr.push(foodObj)
+      fArr.push(foodObj)
+      $scope.foodArr = fArr
       localStorage.setItem("food",JSON.stringify($scope.foodArr))
     }
+    $scope.del = function(name){
+      let theNo = fArr.indexOf(name)
+      fArr.splice(theNo, 1)
+      $scope.foodArr = fArr
+      localStorage.setItem("food",JSON.stringify($scope.foodArr))
+    }
+    
   })

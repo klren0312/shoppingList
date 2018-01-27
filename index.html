@@ -12,9 +12,9 @@
   <header>
     <div id="feature-input">
         <input id="f-name" ng-model="fName" type="text" placeholder="写下你的食材名称">
-        <input id="f-price" ng-model="fPrice" type="text" placeholder="单价">
+        <input id="f-price" ng-model="fPrice" type="number" placeholder="单价">
         <select id="f-number" ng-model="fNumber">
-            <option value="">次数</option>
+            <option value="">数量</option>
             <option value="1">1</option>
             <option value="2">2</option>
             <option value="3">3</option>
@@ -40,7 +40,7 @@
         <span>菜价：{{food.price}}</span>|
         <span>数量：{{food.number}}</span>    
       </div>
-      <button>X</button>
+      <button ng-click="del(food)">X</button>
     </div>
     
   </main>
