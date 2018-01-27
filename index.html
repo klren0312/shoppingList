@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="todoApp">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>治电购物清单</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="https://cdn.bootcss.com/angular.js/1.6.8/angular.js"></script>
+</head>
+<body ng-controller="todoCtrl">
+  <header>
+    <div id="feature-input">
+        <input id="f-name" ng-model="fName" type="text" placeholder="写下你的食材名称">
+        <input id="f-price" ng-model="fPrice" type="text" placeholder="单价">
+        <select id="f-number" ng-model="fNumber">
+            <option value="">次数</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+        </select>
+        <button ng-click="addFood()">
+          <span>+</span>
+        </button>
+        
+    </div>
+  </header>
+  <main>
+    总价：{{totalPrice}}
+    <div class="f-card" ng-repeat="food in foodArr  ">
+      <div class="f-padding">
+        <span>菜名：{{food.name}}</span>|
+        <span>菜价：{{food.price}}</span>|
+        <span>数量：{{food.number}}</span>    
+      </div>
+      <button>X</button>
+    </div>
+    
+  </main>
+  <script src="js/main.js"></script>
+</body>
+</html>
